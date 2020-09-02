@@ -1,0 +1,101 @@
+﻿<Window x:Class="DesktopVodovoz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopVodovoz"
+        xmlns:viewModel="clr-namespace:DesktopVodovoz.ViewModels"
+        mc:Ignorable="d"
+        Title="DesktopApp[Vodovoz]" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Height="450" Width="800" Background="#FFF1F1F1">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="393" Margin="22,10,0,0" VerticalAlignment="Top" Width="738">
+            <TabItem Header="Пользователи">
+                <StackPanel x:Name="User">
+                    <Grid Background="SeaGreen" Height="367">
+                        <DataGrid x:Name="dgUsers" 
+                              HorizontalAlignment="Left" 
+                              Height="300" Margin="20,20,0,0"
+                              Width="704"
+                              CanUserReorderColumns="False" 
+                              SelectionMode="Single" 
+                              IsReadOnly="True" 
+                              VerticalAlignment="Top"
+                              VirtualizingPanel.ScrollUnit="Pixel"
+                              ItemsSource="{Binding Path=UsersData, UpdateSourceTrigger=PropertyChanged}"
+                              SelectedItem="{Binding Path=SUser}"
+                              AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="30" Binding="{Binding iduser}" Header="№"/>
+                                <DataGridTextColumn Width="Auto" Binding="{Binding secondname}" Header="Фамилия"/>
+                                <DataGridTextColumn Width="Auto" Binding="{Binding firstname}" Header="Имя"/>
+                                <DataGridTextColumn Width="Auto" Binding="{Binding middlename}" Header="Отчество"/>
+                                <DataGridTextColumn Width="Auto" Binding="{Binding datebirth}" Header="Дата рождения"/>
+                                <DataGridTextColumn Width="Auto" Binding="{Binding gender}" Header="Пол"/>
+                                <DataGridTextColumn Width="*" Binding="{Binding division}" Header="Подразделение"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Button Command="{Binding UpdateUserCmd}" Content="Обновить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="20,327,0,0"/>
+                        <Button Command="{Binding RenameUserCmd}" Content="Изменить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="465,327,0,0"/>
+                        <Button Command="{Binding AddUserCmd}" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="604,327,0,0" />
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Подразделение">
+                <StackPanel x:Name="Division">
+                    <Grid Background="DodgerBlue" Height="367">
+                        <DataGrid x:Name="dgDivisons" 
+                              HorizontalAlignment="Left" 
+                              Height="300" Margin="20,20,0,0" 
+                              IsReadOnly="True" 
+                              AutoGenerateColumns="False" 
+                              VerticalAlignment="Top" 
+                              Width="704"
+                              CanUserReorderColumns="False" 
+                              SelectionMode="Single"
+                              VirtualizingPanel.ScrollUnit="Pixel"
+                              ItemsSource="{Binding DivisionData}"
+                              SelectedItem="{Binding Path=SDivision}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding iddivision}" Width="30" Header="№"/>
+                                <DataGridTextColumn Binding="{Binding namedivision}" Width="Auto" Header="Наименование подразделение"/>
+                                <DataGridTextColumn Binding="{Binding fullname}" Width="*" Header="Руководитель"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Button Command="{Binding UpdateDivisionCmd}" Content="Обновить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="20,327,0,0"/>
+                        <Button Command="{Binding RenameDivisionCmd}" Content="Изменить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="465,327,0,0"/>
+                        <Button Command="{Binding AddDivisionCmd}" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="604,327,0,0"/>
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Заказы">
+                <StackPanel x:Name="Order">
+                    <Grid Background="DarkOrange" Height="367">
+                        <DataGrid x:Name="dgOrders" 
+                              HorizontalAlignment="Left" 
+                              Height="300" 
+                              Margin="20,20,0,0" 
+                              IsReadOnly="True" 
+                              AutoGenerateColumns="False" 
+                              VerticalAlignment="Top" 
+                              Width="704"
+                              CanUserReorderColumns="False" 
+                              SelectionMode="Single"
+                              VirtualizingPanel.ScrollUnit="Pixel"
+                              ItemsSource="{Binding OrderData}"
+                              SelectedItem="{Binding Path=SelectedOrder}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding idorder}" Width="120" Header="Номер заказа"/>
+                                <DataGridTextColumn Binding="{Binding nameproduct}" Width="Auto" Header="Продукт"/>
+                                <DataGridTextColumn Binding="{Binding fullname}" Width="*" Header="Сотрудник"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Button Command="{Binding UpdateOrderCmd}" Content="Обновить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="20,327,0,0"/>
+                        <Button Command="{Binding RenameOrderCmd}" Content="Изменить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="465,327,0,0"/>
+                        <Button Command="{Binding AddOrderCmd}" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="604,327,0,0"/>
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

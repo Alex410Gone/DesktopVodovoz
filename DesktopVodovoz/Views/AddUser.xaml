@@ -1,0 +1,43 @@
+﻿<Window x:Class="DesktopVodovoz.Views.AddUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopVodovoz.Views"
+        xmlns:viewModel="clr-namespace:DesktopVodovoz.ViewModels"
+        mc:Ignorable="d"
+        Title="Добавить пользователя" ResizeMode="NoResize" Height="450" Width="407.92" WindowStartupLocation="CenterScreen">
+    <Grid Height="420">
+        <TextBox x:Name="txtSecondName" Text="{Binding Secondname}" HorizontalAlignment="Left" Height="22" Margin="159,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202"/>
+        <TextBox x:Name="txtFirstName" Text="{Binding Firstname}" HorizontalAlignment="Left" Height="22" Margin="159,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202"/>
+        <TextBox x:Name="txtMiddlename" Text="{Binding Middlename}" HorizontalAlignment="Left" Height="22" Margin="159,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202"/>
+        <ComboBox x:Name="cbGender" 
+                  ItemsSource="{Binding Genders}" 
+                  SelectedValue="{Binding SelectedGender}"
+                  SelectedValuePath="Value"
+                  DisplayMemberPath="Name" 
+                  IsSynchronizedWithCurrentItem="True"
+                  HorizontalAlignment="Left"
+                  Margin="159,184,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="202" />
+        <DatePicker x:Name="dpBirth" SelectedDate="{Binding BirthDate}" HorizontalAlignment="Left" Margin="159,233,0,0" VerticalAlignment="Top" Width="202"/>
+        <ComboBox x:Name="cbDivision" 
+                  ItemsSource="{Binding Division}"
+                  SelectedValue="{Binding SelectedDivision}"
+                  SelectedValuePath="iddivision" 
+                  DisplayMemberPath="namedivision" 
+                  HorizontalAlignment="Left" Margin="159,285,0,0" 
+                  VerticalAlignment="Top"
+                  IsSynchronizedWithCurrentItem="True" 
+                  Width="202"/>
+        <Button x:Name="buttAdd" Command="{Binding AddCmd}" Content="Добавить" HorizontalAlignment="Left" Margin="259,364,0,0" VerticalAlignment="Top" Width="102" Height="22"/>
+        <Button x:Name="buttClose" Command="{Binding CloseCmd}" Content="Отменить" HorizontalAlignment="Left" Margin="39,364,0,0" VerticalAlignment="Top" Width="102" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,35,0,0" TextWrapping="Wrap" Text="Фамилия" VerticalAlignment="Top" Height="20" Width="100"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,85,0,0" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top" Height="20" Width="100"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,135,0,0" TextWrapping="Wrap" Text="Отчество" VerticalAlignment="Top" Height="20" Width="100"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,185,0,0" TextWrapping="Wrap" Text="Пол" VerticalAlignment="Top" Height="20" Width="100"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,235,0,0" TextWrapping="Wrap" Text="Дата рождения" VerticalAlignment="Top" Height="20" Width="100"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,285,0,0" TextWrapping="Wrap" Text="Подразделение" VerticalAlignment="Top" Height="20" Width="100"/>
+    </Grid>
+</Window>

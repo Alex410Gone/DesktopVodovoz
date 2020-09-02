@@ -1,0 +1,9 @@
+﻿<Application x:Class="DesktopVodovoz.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DesktopVodovoz"
+             StartupUri="Views\MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
